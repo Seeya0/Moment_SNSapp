@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineLogout } from 'react-icons/ai';
 import { useParams, useNavigate } from 'react-router-dom';
 import { GoogleLogout } from 'react-google-login';
@@ -9,10 +9,8 @@ import {
   userSavedPinsQuery,
 } from '../utils/data';
 import { client } from '../client';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import Spinner from './Spinner';
-import MasonryLayout from './MasonryLayout ';
+import MasonryLayout from './MasonryLayout';
 
 const activeBtnStyles =
   'bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none';
@@ -103,7 +101,7 @@ const UserProfile = () => {
         <div>
           <button
             type="button"
-            onClick={() => {
+            onClick={(e) => {
               setText(e.target.textContent);
               setActiveBtn('created');
             }}

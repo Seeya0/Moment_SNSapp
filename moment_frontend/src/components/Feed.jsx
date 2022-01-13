@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { client } from '../client';
 import { feedQuery, searchQuery } from '../utils/data';
 import Spinner from './Spinner';
-import MasonryLayout from './MasonryLayout ';
+import MasonryLayout from './MasonryLayout';
 
 const Feed = () => {
   const [pins, setPins] = useState();

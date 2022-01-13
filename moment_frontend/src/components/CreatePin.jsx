@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import { MdDelete } from 'react-icons/md';
@@ -6,7 +6,6 @@ import { MdDelete } from 'react-icons/md';
 import { categories } from '../utils/data';
 import { client } from '../client';
 import Spinner from './Spinner';
-import { useState } from 'react';
 
 const CreatePin = ({ user }) => {
   const [title, setTitle] = useState('');
@@ -28,7 +27,9 @@ const CreatePin = ({ user }) => {
       selectedFile.type === 'image/svg' ||
       selectedFile.type === 'image/jpeg' ||
       selectedFile.type === 'image/gif' ||
-      selectedFile.type === 'image/tiff'
+      selectedFile.type === 'image/tiff' ||
+      selectedFile.type === 'image/heic' ||
+      selectedFile.type === 'image/heif'
     ) {
       setWrongImageType(false);
       setLoading(true);
