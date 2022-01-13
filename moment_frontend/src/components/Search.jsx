@@ -1,9 +1,41 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-const Search = () => {
+import MasonryLayout from './MasonryLayout';
+import { client } from '../client';
+import { feedQuery, searchQuery } from '../utils/data';
+import Spinner from './Spinner';
+
+const Search = ({ searchTerm }) => {
+  const [pins, setPins] = useState();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (searchTerm !== '') {
+      setLoading(true);
+      const query = searchQuery(searchTerm.toLowerCase());
+      client.fetch(query).then((data) => {
+        setPins(data);
+        setLoading(false);
+      });
+    } else {
+      client.fetch(feedQuery).then((data) => {
+        setPins(data);
+        setLoading(false);
+      });
+    }
+  }, [searchTerm]);
+
   return (
     <div>
-      <h1>searchだぜよ</h1>
+      {loading && <Spinner message="画像を検索しています" />}
+      {pins?.length !== 0 && <MasonryLayout pins={pins} />}
+      {pins?.length === 0 && searchTerm !== '' && !loading && (
+        <div className="mt-10 text-center text-xl">
+          検索したキーワードの画像は見つかりませんでした
+        </div>
+      )}
     </div>
   );
 };
