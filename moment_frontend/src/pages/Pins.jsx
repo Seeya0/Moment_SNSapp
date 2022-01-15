@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Route, Routes } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router';
 import Navbar from '../components/Navbar';
 import Feed from '../components/Feed';
 import PinDetail from '../components/PinDetail';
@@ -8,6 +8,16 @@ import Search from '../components/Search';
 
 const Pins = ({ user }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const User =
+      localStorage.getItem('user') !== 'undefined'
+        ? JSON.parse(localStorage.getItem('user'))
+        : localStorage.clear();
+
+    if (!User) navigate('/login');
+  }, []);
 
   return (
     <div className="px-2 md:px-5">

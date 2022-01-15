@@ -1,5 +1,4 @@
 import ReactDOM from 'react-dom';
-import {} from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';

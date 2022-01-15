@@ -9,15 +9,20 @@ import GoogleLogin from 'react-google-login';
 
 const Login = () => {
   const navigate = useNavigate();
+
   const responseGoogle = (response) => {
     localStorage.setItem('user', JSON.stringify(response.profileObj));
+    console.log(response.profileObj);
+
     const { name, googleId, imageUrl } = response.profileObj;
+
     const doc = {
       _id: googleId,
       _type: 'user',
       userName: name,
       image: imageUrl,
     };
+
     client.createIfNotExists(doc).then(() => {
       navigate('/', { replace: true });
     });

@@ -101,7 +101,7 @@ const Pin = ({ pin }) => {
                   }}
                   className="bg-red-500 opacity-75 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
                 >
-                  {pin?.save?.length} {savingPost ? '保存中' : '保存済み'}
+                  {pin?.save?.length} {savingPost ? '保存中' : '保存する'}
                 </button>
               )}
             </div>
@@ -133,18 +133,18 @@ const Pin = ({ pin }) => {
             </div>
           </div>
         )}
-        <Link
-          to={`/user-profile/${postedBy?._id}`}
-          className="flex items-center gap-2 mt-2"
-        >
-          <img
-            className="w-8 h-8 rounded-full object-cover"
-            src={postedBy?.image}
-            alt="user-profile"
-          />
-          <p className="font-semibold capitalize">{postedBy?.userName}</p>
-        </Link>
       </div>
+      <Link
+        to={`/user-profile/${postedBy?._id}`}
+        className="flex items-center gap-2 mt-2"
+      >
+        <img
+          className="w-8 h-8 rounded-full object-cover"
+          src={postedBy?.image}
+          alt="user-profile"
+        />
+        <p className="font-semibold capitalize">{postedBy?.userName}</p>
+      </Link>
     </div>
   );
 };
