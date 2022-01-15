@@ -12,7 +12,7 @@ const Pin = ({ pin }) => {
   const [savingPost, setSavingPost] = useState(false);
 
   const navigate = useNavigate();
-  const { postedBy, image, _id, destination } = pin;
+  const { postedBy, image, _id } = pin;
   const user =
     localStorage.getItem('user') !== 'undefined'
       ? JSON.parse(localStorage.getItem('user'))
@@ -106,7 +106,7 @@ const Pin = ({ pin }) => {
               )}
             </div>
             <div className="flex justify-between items-center gap-2 w-full">
-              {destination?.slice(8).length > 0 ? (
+              {/* {destination?.slice(8).length > 0 ? (
                 <a
                   href={destination}
                   target="_blank"
@@ -117,7 +117,7 @@ const Pin = ({ pin }) => {
                   <BsFillArrowUpRightCircleFill />
                   {destination?.slice(8, 17)}...
                 </a>
-              ) : undefined}
+              ) : undefined} */}
               {postedBy?._id === user?.googleId && (
                 <button
                   type="button"

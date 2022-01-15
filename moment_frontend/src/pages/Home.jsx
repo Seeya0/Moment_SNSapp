@@ -7,7 +7,7 @@ import { userQuery } from '../utils/data';
 import { client } from '../client';
 import Sidebar from '../components/Sidebar';
 import Pins from './Pins';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo_rectangle.png';
 import UserProfile from '../components/UserProfile';
 
 const Home = () => {
@@ -46,7 +46,7 @@ const Home = () => {
             onClick={() => setToggleSidebar(true)}
           />
           <Link to="/">
-            <img src={logo} alt="Logo" className="w-28" />
+            <img src={logo} alt="Logo" className="w-36" />
           </Link>
           <Link to={`user-profile/${user?._id}`}>
             <img

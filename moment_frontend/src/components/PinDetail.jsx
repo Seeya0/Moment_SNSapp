@@ -88,15 +88,15 @@ const PinDetail = ({ user }) => {
                   <MdDownloadForOffline />
                 </a>
               </div>
-              <a href={pinDetail.destination} target="_blank" rel="noreferrer">
+              {/* <a href={pinDetail.destination} target="_blank" rel="noreferrer">
                 {pinDetail.destination?.slice(8)}
-              </a>
+              </a> */}
             </div>
             <div>
               <h1 className="text-4xl font-bold break-words mt-3">
                 {pinDetail.title}
               </h1>
-              <p className="mt-3">{pinDetail.about}</p>
+              <p className="mt-6 text-lg">{pinDetail.about}</p>
             </div>
             <Link
               to={`/user-profile/${pinDetail?.postedBy._id}`}
@@ -109,7 +109,7 @@ const PinDetail = ({ user }) => {
               />
               <p className="font-bold">{pinDetail?.postedBy.userName}</p>
             </Link>
-            <h2 className="mt-5 text-2xl">Comments</h2>
+            <h2 className="mt-10 text-2xl">Comments</h2>
             <div className="max-h-370 overflow-y-auto">
               {pinDetail?.comments?.map((item) => (
                 <div
@@ -148,7 +148,7 @@ const PinDetail = ({ user }) => {
                 className="bg-red-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none"
                 onClick={addComment}
               >
-                {addingComment ? 'コメントを追加中' : '追加しました'}
+                {addingComment ? 'コメントを追加中' : 'コメントを追加'}
               </button>
             </div>
           </div>

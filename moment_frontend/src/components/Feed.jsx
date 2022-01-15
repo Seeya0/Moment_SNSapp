@@ -27,7 +27,7 @@ const Feed = () => {
     }
   }, [categoryId]);
 
-  const ideaName = categoryId || 'new';
+  const ideaName = categoryId || 'New';
 
   if (loading) {
     return <Spinner message={`フィードに ${ideaName} を追加しています！`} />;
